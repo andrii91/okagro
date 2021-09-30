@@ -8,7 +8,16 @@ $(document).ready(function () {
   }
 
 
+  $('#nav-icon').click(function () {
+    $(this).toggleClass('open');
+    $(this).parents('nav').toggleClass('open');
+  });
 
+  if ($(window).width() < 1200) {
+    $('.menu li a').click(function () {
+      $('nav').removeClass('open');
+    })
+  }
 
   Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
     get: function () {
@@ -64,8 +73,8 @@ $(document).ready(function () {
     arrows: false,
     dots: false,
     focusOnSelect: true,
-    prevArrow: '<button> prev</button>',
-    nextArrow: '<button> next</button>',
+     prevArrow: '<button class="prev"> <svg width="9" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.293 8.707a1 1 0 0 1 0-1.414L6.657.929A1 1 0 0 1 8.07 2.343L2.414 8l5.657 5.657a1 1 0 1 1-1.414 1.414L.293 8.707ZM2 9H1V7h1v2Z" fill="#fff"/></svg></button>',
+    nextArrow: '<button class="next"> <svg width="9" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.707 8.707a1 1 0 0 0 0-1.414L2.343.929A1 1 0 0 0 .93 2.343L6.586 8 .929 13.657a1 1 0 1 0 1.414 1.414l6.364-6.364ZM7 9h1V7H7v2Z" fill="#fff"/></svg></button>',
     infinite: true,
     centerMode: true,
     slidesPerRow: 1,
@@ -76,6 +85,14 @@ $(document).ready(function () {
     customPaging: function (slider, i) {
       return '';
     },
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: true,
+        }
+    }
+  ]
     /*infinite: false,*/
   });
 
@@ -161,6 +178,8 @@ $(document).ready(function () {
   $('.price-slider').slick({
     dots: false,
     infinite: false,
+     prevArrow: '<button class="prev"> <svg width="9" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.293 8.707a1 1 0 0 1 0-1.414L6.657.929A1 1 0 0 1 8.07 2.343L2.414 8l5.657 5.657a1 1 0 1 1-1.414 1.414L.293 8.707ZM2 9H1V7h1v2Z" fill="#fff"/></svg></button>',
+    nextArrow: '<button class="next"> <svg width="9" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.707 8.707a1 1 0 0 0 0-1.414L2.343.929A1 1 0 0 0 .93 2.343L6.586 8 .929 13.657a1 1 0 1 0 1.414 1.414l6.364-6.364ZM7 9h1V7H7v2Z" fill="#fff"/></svg></button>',
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -170,18 +189,11 @@ $(document).ready(function () {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          dots: true
         }
     },
+
       {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1
-        }
-    },
-      {
-        breakpoint: 480,
+        breakpoint: 769,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1
@@ -206,7 +218,6 @@ $(document).ready(function () {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
-          dots: true
         }
     },
       {
@@ -228,21 +239,67 @@ $(document).ready(function () {
     // instead of a settings object
   ]
   });
-  
-  $('.arr-prev').click(function(){
-      $('.logo-slider5').slick('slickPrev');
-  })
-  
-  $('.arr-next').click(function(){
-      $('.logo-slider5').slick('slickNext');
-  })
-  
-  $('.arr-previnfo').click(function(){
-      $('.logo-slider').slick('slickPrev');
-  })
-  
-  $('.arr-nextinfo').click(function(){
-      $('.logo-slider').slick('slickNext');
+
+  $('.arr-prev').click(function () {
+    $('.logo-slider5').slick('slickPrev');
   })
 
+  $('.arr-next').click(function () {
+    $('.logo-slider5').slick('slickNext');
+  })
+
+  $('.arr-previnfo').click(function () {
+    $('.logo-slider').slick('slickPrev');
+  })
+
+  $('.arr-nextinfo').click(function () {
+    $('.logo-slider').slick('slickNext');
+  })
+
+  
+  // Вешаем на прикосновение функцию handleTouchStart
+document.addEventListener('touchstart', handleTouchStart, false);  
+// А на движение пальцем по экрану - handleTouchMove      
+document.addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;                                                        
+var yDown = null;                                                        
+
+function handleTouchStart(evt) {                                         
+    xDown = evt.touches[0].clientX;                                      
+    yDown = evt.touches[0].clientY;                                      
+};                                                
+
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+    // немного поясню здесь. Тут берутся модули движения по оси абсцисс и ординат (почему модули? потому что если движение сделано влево или вниз, то его показатель будет отрицательным) и сравнивается, чего было больше: движения по абсциссам или ординатам. Нужно это для того, чтобы, если пользователь провел вправо, но немного наискосок вниз, сработал именно коллбэк для движения вправо, а ни как-то иначе.
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+           $('.program-link li a.active').parent().next().find('a').trigger('click');
+          console.log('left')
+        } else {
+            $('.program-link li a.active').parent().prev().find('a').trigger('click');
+          console.log('right')
+            /* right swipe */
+        }                       
+    } else { // Это вам, в общем-то, не надо, вы ведь только влево-вправо собираетесь двигать
+        if ( yDiff > 0 ) {
+            /* up swipe */ 
+        } else { 
+            /* down swipe */
+        }                                                                 
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;                                             
+};
+  
 });
