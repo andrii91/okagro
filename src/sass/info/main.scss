@@ -149,7 +149,7 @@ body {
   width: 100%;
   max-width: 1000px;
   position: absolute;
-  top: -80px;
+  top: -170px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(31, 19, 74, 0.7);
@@ -159,8 +159,9 @@ body {
   align-items: flex-start;
   justify-content: space-between;
   backdrop-filter: blur(8px);
+  flex-wrap: wrap;
   
-  img {
+  >img {
     width: 156px;
   }
   
@@ -175,6 +176,11 @@ body {
     margin-bottom: 0;
     width: calc(100% - 190px);
 
+  }
+  .marquee {
+    margin-left: -39px;
+    width: calc(100% + 78px);
+    margin-right: -39px;
   }
 }
 
@@ -285,11 +291,11 @@ body {
     z-index: 2;
     &:before {
       content: "";
-      width: 201px;
-      height: 60px;
+      width: 68px;
+      height: 68px;
       background: #E30D29;
       mix-blend-mode: normal;
-      filter: blur(100px);
+      filter: blur(50px);
       position: absolute;
       z-index: -1;
       top: 50%;
@@ -928,6 +934,10 @@ form {
   margin-bottom: 15px;
 }
 
+.mt-30 {
+  margin-top: 30px;
+}
+
 .footer {
   margin-top: 170px;
   .logo {
@@ -948,6 +958,17 @@ form {
     list-style: none;
     padding: 0;
     margin: 0;
+    &.social {
+      display: flex;
+      align-items: center;
+      li {
+        margin-right: 10px;
+          transform: scale(1.1);
+        a {
+          margin-bottom: 0;
+        }
+      }
+    }
     li {
       a {
         display: block;
@@ -977,4 +998,16 @@ form {
 
 .burger-btn {
   display: none;
+}
+
+.marquee {
+  overflow: hidden;
+  width: 100%;
+} 
+
+.pdf-form {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
 }

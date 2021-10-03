@@ -40,7 +40,7 @@ gulp.task('js_v', async function() {
             'src/js/vendor/slick.min.js',
             'src/js/vendor/jquery.fancybox.min.js',
             'src/js/vendor/jquery.formstyler.min.js',
-            // 'src/js/vendor/jquery.scrollTo.js',
+            'src/js/vendor/jquery.marquee.min.js',
             // 'src/js/vendor/jquery.waypoints.min.js',
             // 'src/js/vendor/jqueryrotate.2.1.js',
         ])

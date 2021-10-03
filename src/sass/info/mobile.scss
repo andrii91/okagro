@@ -72,13 +72,13 @@
     display: block;
     text-align: right;
     padding-top: 48px;
-    transition: .3s;
+    transition: .05s;
     position: fixed;
     top: 45px;
     min-height: calc(100vh - 45px);
     right: -999px;
     z-index: 99;
-    width: 100vw;
+    width: 100%;
 
     li {
       display: block;
@@ -183,7 +183,7 @@
   }
 
   .h2 span:before {
-    display: none;
+//    display: none;
   }
 
   .video_slider {
