@@ -225,7 +225,7 @@
   }
 
   .section-bg:before {
-    height: 880px;
+    height: 1335px;
   }
 
   .speaker-slider .item {
@@ -411,5 +411,55 @@
   }
   .partner-logo {
     padding-bottom: 50px;
+  }
+  
+  .rev_slide-mobile {
+    margin-bottom: 11px;
+    video {
+      width: 100%;
+      border-radius: 9px;
+    }
+  }
+  
+  .rev_slide .video-info {
+    top: 23px;
+    left: 21px;
+    width: 90%;
+    span {
+      float: right;
+      margin-top: -25px;
+    }
+  }
+}
+.date-mobile {
+  .date {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 90%;
+    text-align: justify;
+    letter-spacing: 0.465em;
+    color: #E30D29;
+    span {
+      display: inline-block;
+    }
+    .large {
+      display: inline-block;
+      font-size: 20px;
+      width: inherit;
+      float: left;
+    }
+  }
+  .title {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 65.4925px;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: #FFFFFF;
+    span {
+      display: block;
+      color: #E30D29;
+    }
   }
 }

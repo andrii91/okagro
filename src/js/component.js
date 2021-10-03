@@ -107,6 +107,13 @@ $(document).ready(function () {
     $('.video_slider .slick-active').find('.video-info').hide()
     $('.video_slider .slick-active').find('.play-btn').hide()
   });
+  
+  
+  $('.play-mobile').click(function(){
+       $(this).parent().find('video').trigger('play').attr('controls', 'controls');
+      $(this).parent().find('video').find('.video-info').hide()
+      $(this).parent().find('video').find('.play-btn').hide()
+  })
 
 
   $('.speaker-slider').slick({
@@ -304,10 +311,10 @@ function handleTouchMove(evt) {
   
   
   $('.marquee').marquee({
-    duration: 10000,
+    duration: 15000,
     startVisible: true,
     duplicated: true,
-	pauseOnHover: true
+//	pauseOnHover: true
 });
   
 });

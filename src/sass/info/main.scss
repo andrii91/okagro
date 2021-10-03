@@ -154,7 +154,7 @@ body {
   transform: translateX(-50%);
   background: rgba(31, 19, 74, 0.7);
   border-radius: 12px;
-  padding: 26px 39px;
+  padding: 6px 39px 26px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -294,8 +294,7 @@ body {
       width: 68px;
       height: 68px;
       background: #E30D29;
-      mix-blend-mode: normal;
-      filter: blur(50px);
+      filter: blur(100px);
       position: absolute;
       z-index: -1;
       top: 50%;
@@ -877,7 +876,7 @@ form {
 .partner-logo {
   position: relative;
   z-index: 1;
-  padding-bottom: 140px;
+  padding-bottom: 40px;
   &:before {
     content: "";
     background: linear-gradient(180deg, #2B108B 0%, #3718A4 100%);
@@ -943,6 +942,9 @@ form {
   .logo {
     display: block;
   }
+  .marquee {
+    margin-top: 50px;
+  }
   
   h4 {
     font-style: normal;
@@ -990,6 +992,11 @@ form {
     margin-left: auto;
     margin-right: auto;
   }
+  iframe {
+    width: 100%;
+    height: 90px;
+    border-radius: 11px;
+  }
 }
 
 .xs-block {
@@ -1010,4 +1017,8 @@ form {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
+}
+
+.mt-35 {
+  margin-top: 35px;
 }
