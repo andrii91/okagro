@@ -1,8 +1,12 @@
 @import '../../mq';
 
 @media #{$tabletPortrait} {
-    @import '../mobile';
-  	& {
-     
-	}
+  @import '../mobile';
+
+  & {
+    .section-bg:before {
+      height: 1470px;
+      min-height: inherit;
+    }
+  }
 }

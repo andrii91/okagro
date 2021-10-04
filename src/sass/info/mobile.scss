@@ -176,14 +176,14 @@
       margin-bottom: 15px;
     }
 
-    svg {
-      width: 106px;
-      height: 24.94px;
-    }
+    //    svg {
+    //      width: 106px;
+    //      height: 24.94px;
+    //    }
   }
 
   .h2 span:before {
-//    display: none;
+    //    display: none;
   }
 
   .video_slider {
@@ -226,6 +226,8 @@
 
   .section-bg:before {
     height: 1335px;
+    min-height: 235vw;
+    max-width: 1500px;
   }
 
   .speaker-slider .item {
@@ -243,11 +245,15 @@
   .program-time {
     svg {
       width: 2.5px;
+      height: 12.3px;
     }
 
     .time-item {
-      font-size: 12px;
+      font-size: 14px;
       line-height: 24px;
+      padding-left: 17px;
+      letter-spacing: -0.05em;
+
 
       span {
         font-size: 19px;
@@ -266,7 +272,6 @@
 
   .program-item .time {
 
-    margin-bottom: -40px;
 
     span {
       font-size: 22px;
@@ -277,16 +282,17 @@
   .program-item {
     .company {
       position: absolute;
-      top: -75px;
-      color: #E30D29;
+      top: -55px;
+      color: #e30d29;
       font-size: 10px;
+      left: 37%;
     }
 
-    .img {
-      text-align: right;
-      transform: translateY(-50%);
-      margin-bottom: -30px;
-    }
+
+  }
+
+  .program-item .title {
+    margin-top: 26px;
   }
 
   .price {
@@ -297,9 +303,13 @@
 
     .text {
       text-align: justify;
+      margin-top: 0;
     }
   }
-
+  .partner p {
+    text-align: justify;
+    
+  }
   .price-slider {
     margin-top: -72px;
 
@@ -361,105 +371,154 @@
       &:before {
         font-size: 32.1188px;
       }
-      
+
       span {
         font-size: 19.7143px;
+
         &:before {
           font-size: 19.7143px;
         }
       }
     }
   }
+
   .partner-form {
     input {
       margin-bottom: 6px;
     }
   }
-  .arr-prev, .arr-previnfo {
+
+  .arr-prev,
+  .arr-previnfo {
     margin-right: 10px;
+
     circle {
       fill: none;
     }
   }
-  .arr-next, .arr-nextinfo {
+
+  .arr-next,
+  .arr-nextinfo {
     margin-left: 10px;
+
     circle {
       fill: none;
     }
   }
-  
-  .arr-nextinfo, .arr-previnfo {
+
+  .arr-nextinfo,
+  .arr-previnfo {
     path {
       fill: #fff;
     }
   }
+
   .info-partn {
     margin-top: 20px;
   }
-  
+
   .footer {
     margin-top: 50px;
+
     h4 {
       margin-top: 40px;
     }
+
     .container {
-      padding-left: 34px;
       .item {
         margin-left: 0;
       }
     }
   }
+
   .partner-logo {
     padding-bottom: 50px;
   }
-  
+
   .rev_slide-mobile {
     margin-bottom: 11px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+
     video {
       width: 100%;
       border-radius: 9px;
     }
   }
-  
+
   .rev_slide .video-info {
     top: 23px;
     left: 21px;
     width: 90%;
+
     span {
       float: right;
       margin-top: -25px;
     }
   }
-}
-.date-mobile {
-  .date {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 90%;
-    text-align: justify;
-    letter-spacing: 0.465em;
-    color: #E30D29;
-    span {
-      display: inline-block;
-    }
-    .large {
-      display: inline-block;
-      font-size: 20px;
-      width: inherit;
-      float: left;
-    }
-  }
-  .title {
-    font-style: normal;
-    font-weight: 900;
-    font-size: 65.4925px;
-    line-height: 1;
-    letter-spacing: -0.05em;
-    color: #FFFFFF;
-    span {
-      display: block;
+
+  .date-mobile {
+    margin-top: -155px;
+    margin-bottom: 10px;
+
+    .date {
+      padding-left: 33px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 90%;
+      letter-spacing: 0.465em;
       color: #E30D29;
+      display: flex;
+      align-items: center;
+
+      div {
+        margin-left: 12px;
+
+        span {
+          display: block;
+        }
+      }
+
+      span {
+        display: inline-block;
+      }
+
+      .large {
+        display: inline-block;
+        font-size: 20px;
+        width: inherit;
+        float: left;
+      }
+    }
+
+    .title {
+      margin-top: 10px;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 65.4925px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: #FFFFFF;
+
+      span {
+        display: block;
+        color: #E30D29;
+      }
     }
   }
+
+  .xs-first {
+    -ms-flex-order: -1;
+    order: -1;
+  }
+
+  .price {
+    form input.dark {
+      margin-bottom: 6px;
+    }
+  }
+
+  
 }
