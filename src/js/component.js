@@ -111,8 +111,8 @@ $(document).ready(function () {
   
   $('.play-mobile').click(function(){
        $(this).parent().find('video').trigger('play').attr('controls', 'controls');
-      $(this).parent().find('video').find('.video-info').hide()
-      $(this).parent().find('video').find('.play-btn').hide()
+      $(this).parent().find('.video-info').hide();
+      $(this).hide();
   })
 
 
